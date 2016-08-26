@@ -98,6 +98,18 @@ class LoginPage(tk.Frame):
         self.button = ttk.Button(self, text="Login",
                                  command= lambda: self.login())
         self.button.pack(padx=10,pady=10)
+
+    def login(self):
+
+        # Attempts to log the user in to the scratchapi
+
+        usernameData = self.usernameEntry.get()
+        passwordData = self.passwordEntry.get()
+
+        if usernameData == "" or passwordData == "":
+            # Stop the function if the fields are empty.
+            self.errorMessage.config(text="These fields are required.")
+            return
     
 
 
