@@ -110,6 +110,17 @@ class LoginPage(tk.Frame):
             # Stop the function if the fields are empty.
             self.errorMessage.config(text="These fields are required.")
             return
+
+        # Attempt to login to the scratchapi with the given username and password
+
+        try:
+            scratch = scratchapi.ScratchUserSession(usernameData, passwordData)
+        except:
+            # Stop the function if there was an error
+            self.errorMessage.config(text="Login failed.")
+            return
+
+        self.controller.show_frame(MainPage)
     
 
 
