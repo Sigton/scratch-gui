@@ -59,3 +59,73 @@ class ScratchGUIApp(tk.Tk):
 
         frame = self.frames[cont]
         frame.tkraise()
+
+class LoginPage(tk.Frame):
+
+    '''
+    This is all content on the login page
+    '''
+
+    def __init__(self, parent, controller):
+
+        ''' Constructor '''
+
+        # Call the parents constructor
+        tk.Frame.__init__(self, parent)
+
+        self.parent = parent
+        self.controller = controller
+
+        # Add the title
+        self.title = ttk.Label(self, text="Log in to your Scratch account", font=LARGE_FONT)
+        self.title.pack(padx=10.pady=10)
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
