@@ -133,9 +133,13 @@ class MainPage(tk.Frame):
         ''' Constructor '''
 
         # Call the parents constructor
+        tk.Frame.__init__(self, parent)
 
         self.parent = parent
         self.controller = controller
+
+        self.title = ttk.Label(text="Welcome to the Scratch GUI")
+        self.title.pack(padx=10,pady=10)
 
 app = ScratchGUIApp()
 app.mainloop()
