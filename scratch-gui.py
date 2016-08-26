@@ -77,8 +77,27 @@ class LoginPage(tk.Frame):
         self.controller = controller
 
         # Add the title
-        self.title = ttk.Label(self, text="Log in to your Scratch account", font=LARGE_FONT)
+        self.title = ttk.Label(self, text="Log in to your Scratch account.", font=LARGE_FONT)
         self.title.pack(padx=10, pady=10)
+
+        # Add the login form
+        self.usernameEntry = ttk.Entry(self)
+        self.usernameEntry.pack(pady=2)
+        self.passwordEntry = ttk.Entry(self)
+        self.passwordEntry.pack(pady=2)
+
+        # Just in case theres anything to report
+        self.errorMessage = ttk.Label(self, text="", foreground="red")
+        self.errorMessage.pack()
+
+        # Add the disclaimer
+        self.subtitle = ttk.Label(self, text="Account information is not stored in any way.")
+        self.subtitle.pack(padx=10, pady=10)
+
+        # And finally add the login button
+        self.button = ttk.Button(self, text="Login",
+                                 command= lambda: self.login())
+        self.button.pack(padx=10,pady=10)
     
 
 
