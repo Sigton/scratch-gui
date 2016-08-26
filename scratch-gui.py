@@ -122,7 +122,23 @@ class LoginPage(tk.Frame):
 
         self.controller.show_frame(MainPage)
     
+class MainPage(tk.Frame):
 
+    '''
+    This is all content on the main page.
+    '''
+
+    def __init__(self, parent, controller):
+
+        ''' Constructor '''
+
+        # Call the parents constructor
+
+        self.parent = parent
+        self.controller = controller
+
+app = ScratchGUIApp()
+app.mainloop()
 
 
 
