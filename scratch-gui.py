@@ -52,3 +52,10 @@ class ScratchGUIApp(tk.Tk):
 
         # Set the starting page
         self.show_frame(LoginPage)
+
+    def show_frame(self, cont):
+
+        # A simple function to switch pages
+
+        frame = self.frames[cont]
+        frame.tkraise()
