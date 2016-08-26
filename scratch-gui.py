@@ -28,9 +28,6 @@ class ScratchGUIApp(tk.Tk):
         # Set the window title
         tk.Tk.wm_title(self, "Scratch GUI")
 
-        # Set the window size
-        self.geometry('{}x{}'.format(800,600))
-
         # Create the container
         container = tk.Frame(self)
         container.pack(side="top", fill="both", expand=True)
@@ -77,27 +74,31 @@ class LoginPage(tk.Frame):
         self.controller = controller
 
         # Add the title
-        self.title = ttk.Label(self, text="Log in to your Scratch account.", font=LARGE_FONT)
-        self.title.pack(padx=10, pady=10)
+        self.title = ttk.Label(self, text="Log in to your Scratch account", font=LARGE_FONT)
+        self.title.grid(row=0,column=0,columnspan=2,pady=10)
 
         # Add the login form
+        self.usernameTag = ttk.Label(self, text="Username:")
+        self.usernameTag.grid(row=1,column=0,sticky="e",pady=2)
         self.usernameEntry = ttk.Entry(self)
-        self.usernameEntry.pack(pady=2)
+        self.usernameEntry.grid(row=1,column=1,pady=2)
+        self.passwordTag = ttk.Label(self, text="Password:")
+        self.passwordTag.grid(row=2,column=0,sticky="e",pady=2)
         self.passwordEntry = ttk.Entry(self)
-        self.passwordEntry.pack(pady=2)
+        self.passwordEntry.grid(row=2,column=1,pady=2)
 
         # Just in case theres anything to report
         self.errorMessage = ttk.Label(self, text="", foreground="red")
-        self.errorMessage.pack()
+        self.errorMessage.grid(row=3,column=0,columnspan=2,pady=5)
 
         # Add the disclaimer
-        self.subtitle = ttk.Label(self, text="Account information is not stored in any way.")
-        self.subtitle.pack(padx=10, pady=10)
+        self.subtitle = ttk.Label(self, text="Account information is not collected in any way.")
+        self.subtitle.grid(row=4,column=0,columnspan=2)
 
         # And finally add the login button
         self.button = ttk.Button(self, text="Login",
                                  command= lambda: self.login())
-        self.button.pack(padx=10,pady=10)
+        self.button.grid(row=5,column=0,columnspan=2,pady=10)
 
     def login(self):
 
@@ -138,56 +139,5 @@ class MainPage(tk.Frame):
         self.parent = parent
         self.controller = controller
 
-        self.title = ttk.Label(text="Welcome to the Scratch GUI")
-        self.title.pack(padx=10,pady=10)
-
 app = ScratchGUIApp()
 app.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
