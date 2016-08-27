@@ -178,6 +178,8 @@ class MessagePage(tk.Frame):
                                      command=lambda: controller.show_frame(MenuPage)
                                      ).pack()
 
+        self.title = ttk.Label(self, text="Messages", font=LARGE_FONT).pack()
+
 class ProjectPage(tk.Frame):
 
     '''
