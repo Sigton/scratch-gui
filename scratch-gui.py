@@ -174,6 +174,10 @@ class MessagePage(tk.Frame):
         self.parent = parent
         self.controller = controller
 
+        self.backButton = ttk.Button(self, text="Back to Menu",
+                                     command=lambda: controller.show_frame(MenuPage)
+                                     ).pack()
+
 class ProjectPage(tk.Frame):
 
     '''
@@ -189,6 +193,10 @@ class ProjectPage(tk.Frame):
 
         self.parent = parent
         self.controller = controller
+
+        self.backButton = ttk.Button(self, text="Back to Menu",
+                                     command=lambda: controller.show_frame(MenuPage)
+                                     ).pack()
 
 class StudioPage(tk.Frame):
 
@@ -206,6 +214,10 @@ class StudioPage(tk.Frame):
         self.parent = parent
         self.controller = controller
 
+        self.backButton = ttk.Button(self, text="Back to Menu",
+                                     command=lambda: controller.show_frame(MenuPage)
+                                     ).pack()
+
 class ProfilePage(tk.Frame):
 
     '''
@@ -221,6 +233,10 @@ class ProfilePage(tk.Frame):
 
         self.parent = parent
         self.controller = controller
+
+        self.backButton = ttk.Button(self, text="Back to Menu",
+                                     command=lambda: controller.show_frame(MenuPage)
+                                     ).pack()
 
 app = ScratchGUIApp()
 app.mainloop()
