@@ -8,7 +8,7 @@ This is a GUI built on Dylan5797's Scratch API
 import tkinter as tk
 from tkinter import ttk
 
-import scratchapi # Thanks to Dylan5797!
+import scratchapi
 
 LARGE_FONT = ("Verdana", 12)
 
@@ -29,19 +29,19 @@ class ScratchGUIApp(tk.Tk):
         tk.Tk.wm_title(self, "Scratch GUI")
 
         # Create the container
-        container = tk.Frame(self)
-        container.pack(side="top", fill="both", expand=True)
+        self.container = tk.Frame(self)
+        self.container.pack(side="top", fill="both", expand=True)
 
         # And configure the grid
-        container.grid_rowconfigure(0, weight=1)
-        container.grid_columnconfigure(0, weight=1)
+        self.container.grid_rowconfigure(0, weight=1)
+        self.container.grid_columnconfigure(0, weight=1)
 
         # Create a dictionary of frames and append all pages to it
         self.frames = {}
 
         for f in (LoginPage, MainPage):
 
-            frame = f(container, self)
+            frame = f(self.container, self)
 
             self.frames[f] = frame
 
