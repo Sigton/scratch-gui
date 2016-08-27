@@ -25,6 +25,9 @@ class ScratchGUIApp(tk.Tk):
         # Call the parents constructor
         tk.Tk.__init__(self, *args, **kwargs)
 
+        # API
+        self.scratch = None
+
         # Set the window title
         tk.Tk.wm_title(self, "Scratch GUI")
 
@@ -118,12 +121,12 @@ class LoginPage(tk.Frame):
         # Attempt to login to the scratchapi with the given username and password
 
         try:
-            scratch = scratchapi.ScratchUserSession(usernameData, passwordData)
+            self.controller.scratch = scratchapi.ScratchUserSession(usernameData, passwordData)
         except:
             # Stop the function if there was an error
             self.errorMessage.config(text="Login failed.")
             return
-
+        passwordData = ""
         self.controller.show_frame(MenuPage)
     
 class MenuPage(tk.Frame):
@@ -179,6 +182,20 @@ class MessagePage(tk.Frame):
                                      ).pack()
 
         self.title = ttk.Label(self, text="Messages", font=LARGE_FONT).pack()
+
+        self.messageCount = ttk.Button(self, text="Get message count",
+                                       command=lambda: self.get_message_count()
+                                       ).pack()
+        self.messageLabel = ttk.Label(self, text="You have 0 messages.").pack()
+
+    def get_message_count(self):
+
+        # This gives the current number of unread messages
+
+        count = self.controller.scratch.messages.get_message_count()
+        
+        self.messageLabel.config(text="You have {} messages".format(count))
+        
 
 class ProjectPage(tk.Frame):
 
