@@ -28,6 +28,9 @@ class ScratchGUIApp(tk.Tk):
         # Set the window title
         tk.Tk.wm_title(self, "Scratch GUI")
 
+        # Set the window size
+        self.geometry('{}x{}'.format(800,600))
+
         # Create the container
         self.container = tk.Frame(self)
         self.container.pack(side="top", fill="both", expand=True)
@@ -39,7 +42,7 @@ class ScratchGUIApp(tk.Tk):
         # Create a dictionary of frames and append all pages to it
         self.frames = {}
 
-        for f in (LoginPage, MenuPage):
+        for f in (LoginPage, MenuPage, MessagePage, ProjectPage, StudioPage, ProfilePage):
 
             frame = f(self.container, self)
 
@@ -76,7 +79,7 @@ class LoginPage(tk.Frame):
         # Add the title
         self.title = ttk.Label(self, text="Log in to your Scratch account", font=LARGE_FONT)
         self.title.grid(row=0,column=0,columnspan=2,pady=10)
-
+        
         # Add the login form
         self.usernameTag = ttk.Label(self, text="Username:")
         self.usernameTag.grid(row=1,column=0,sticky="e",pady=2)
@@ -155,5 +158,113 @@ class MenuPage(tk.Frame):
                                         command=lambda: controller.show_frame(ProfilePage)
                                         ).grid(row=4,column=0,pady=2)
 
+class MessagePage(tk.Frame):
+
+    '''
+    This is all content on the messages page
+    '''
+
+    def __init__(self, parent, controller):
+
+        ''' Constructor '''
+
+        # Call the parents constructor
+        tk.Frame.__init__(self, parent)
+
+        self.parent = parent
+        self.controller = controller
+
+class ProjectPage(tk.Frame):
+
+    '''
+    This is all content on the project page
+    '''
+
+    def __init__(self, parent, controller):
+
+        ''' Constructor '''
+
+        # Call the parents constructor
+        tk.Frame.__init__(self, parent)
+
+        self.parent = parent
+        self.controller = controller
+
+class StudioPage(tk.Frame):
+
+    '''
+    This is all content on the studio page
+    '''
+
+    def __init__(self, parent, controller):
+
+        ''' Constructor '''
+
+        # Call the parents constructor
+        tk.Frame.__init__(self, parent)
+
+        self.parent = parent
+        self.controller = controller
+
+class ProfilePage(tk.Frame):
+
+    '''
+    This is all content on the profile page
+    '''
+
+    def __init__(self, parent, controller):
+
+        ''' Constructor '''
+
+        # Call the parents constructor
+        tk.Frame.__init__(self, parent)
+
+        self.parent = parent
+        self.controller = controller
+
 app = ScratchGUIApp()
 app.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
