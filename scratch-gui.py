@@ -139,5 +139,21 @@ class MenuPage(tk.Frame):
         self.parent = parent
         self.controller = controller
 
+        self.title = ttk.Label(self, text="Welcome to the ScratchGUI", font=LARGE_FONT)
+        self.title.grid(row=0,column=0,pady=10)
+
+        self.messagesButton = ttk.Button(self, text="Messages",
+                                         command=lambda: controller.show_frame(MessagePage)
+                                         ).grid(row=1,column=0,pady=2)
+        self.projectsButton = ttk.Button(self, text="Projects",
+                                         command=lambda: controller.show_frame(ProjectPage)
+                                         ).grid(row=2,column=0,pady=2)
+        self.studioButton = ttk.Button(self, text="Studios",
+                                       command=lambda: controller.show_frame(StudioPage)
+                                       ).grid(row=3,column=0,pady=2)
+        self.profileButton = ttk.Button(self, text="Profile",
+                                        command=lambda: controller.show_frame(ProfilePage)
+                                        ).grid(row=4,column=0,pady=2)
+
 app = ScratchGUIApp()
 app.mainloop()
