@@ -39,7 +39,7 @@ class ScratchGUIApp(tk.Tk):
         # Create a dictionary of frames and append all pages to it
         self.frames = {}
 
-        for f in (LoginPage, MainPage):
+        for f in (LoginPage, MenuPage):
 
             frame = f(self.container, self)
 
@@ -121,9 +121,9 @@ class LoginPage(tk.Frame):
             self.errorMessage.config(text="Login failed.")
             return
 
-        self.controller.show_frame(MainPage)
+        self.controller.show_frame(MenuPage)
     
-class MainPage(tk.Frame):
+class MenuPage(tk.Frame):
 
     '''
     This is all content on the main page.
